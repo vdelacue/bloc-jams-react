@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import albumData from './../data/albums';
 
 class Album extends Component {
     constructor(props) {
         super(props);
         
-        const album = albumData.find( album => {
-            return album.slug === this.props.match.params.slug 
+        const matched_album = albumData.find( album => {
+            return album.slug === this.props.match.params.slug;
         });
         
         this.state = {
-            album: album 
+            album: matched_album 
         };
     }
     
@@ -31,7 +32,16 @@ class Album extends Component {
                     <col id="song-title-column" />
                     <col id="song-duration-column" />
                 </colgroup>
-                <tbody>
+                <tbody className="song-list">
+                    {
+                        this.state.album.songs.map( (song, index) =>
+                            <tr className="album-view-song-list">
+                                <td className="song-number">{song.number}</td>       
+                                <td className="song-title">{song.title}</td>
+                                <td className="song-duration">{song.duration}</td>
+                            </tr>
+                        )
+                    }
                 </tbody>
             </table>
             </section>
