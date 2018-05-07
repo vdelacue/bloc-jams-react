@@ -1,4 +1,5 @@
 export default [{
+    key: 'PC'
     title: 'The Colors',
     artist: 'Pablo Picasso',
     releaseInfo: '1909 Spanish Records',
@@ -12,6 +13,7 @@ export default [{
         { title: 'Magenta', duration: '374.22', audioSrc: '/assets/music/magenta.mp3' }
     ]
 }, {
+    Key: 'GT'
     title: 'The Telephone',
     artist: 'Guglielmo Marconi',
     releaseInfo: '1909 EM',
