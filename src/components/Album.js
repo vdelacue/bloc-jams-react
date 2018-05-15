@@ -1,18 +1,47 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import albumData from './../data/albums';
 
 class Album extends Component {
     constructor(props) {
         super(props);
         
-        const matched_album = albumData.find( album => {
+        const album = albumData.find( album => {
             return album.slug === this.props.match.params.slug;
         });
         
         this.state = {
-            album: matched_album 
+            album: album,
+            currentSong: album.songs[0],
+            isPlaying: false
         };
+        
+        this.audioElement = document.createElement('audio');
+        this.audioElement.src = album.songs[0].audioSrc;
+    }
+    
+    play() {
+        this.audioElement.play();
+        this.setState({ isPlaying: true });
+    }
+        
+    pause() {
+        this.audioElement.pause();
+        this.setState({ isPlaying: false });
+    }
+    
+    setSong(song) {
+        this.audioElement.src = song.audioSrc;
+        this.setState({ currentSong: song });
+    }
+    
+    handleSongClick(song) {
+        const isSameSong = this.state.currentSong === song;
+        if (this.state.isPlaying && isSameSong) {
+            this.pause();
+        } else {
+            if(!isSameSong) { this.setSong(song); }
+            this.play();
+        }
     }
     
     render() {
@@ -35,7 +64,7 @@ class Album extends Component {
                 <tbody className="song-list">
                     {
                         this.state.album.songs.map( (song, index) =>
-                            <tr className="album-view-song-list">
+                            <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
                                 <td className="song-number">{song.number}</td>       
                                 <td className="song-title">{song.title}</td>
                                 <td className="song-duration">{song.duration}</td>
