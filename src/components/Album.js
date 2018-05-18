@@ -35,7 +35,7 @@ class Album extends Component {
     }
     
     handleSongClick(song) {
-        const isSameSong = this.state.currentSong === song;
+        const isSameSong = (this.state.currentSong === song) ;
         if (this.state.isPlaying && isSameSong) {
             this.pause();
         } else {
@@ -44,12 +44,18 @@ class Album extends Component {
         }
     }
     
+    onMouseEnter() {
+        this.album.number = document.getElementById("test");
+    }
+    
     render() {
         return (
             <section className="album">
                 <section id="album-info">
                     <img id="album-cover-art" src ={this.state.album.albumCover} alt="album-cover-art" />
                     <div className="album-details">
+                        <span id="test" className="ion-play"></span>
+                        <span className="ion-pause"></span>
                         <h1 id="album-title">{this.state.album.title}</h1>
                         <h2 className="artist">{this.state.album.artist}</h2>
                         <div id="release-info">{this.state.album.releaseinfo}</div>
@@ -65,7 +71,9 @@ class Album extends Component {
                     {
                         this.state.album.songs.map( (song, index) =>
                             <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-                                <td className="song-number">{song.number}</td>       
+                                <td className="song-number" onMouseEnter="mouseEnter()" onMouseLeave="mouseLeave()">{song.number}</td> 
+                                    <span className="ion-play"></span>
+                                    <span className="ion-pause"></span>
                                 <td className="song-title">{song.title}</td>
                                 <td className="song-duration">{song.duration}</td>
                             </tr>
