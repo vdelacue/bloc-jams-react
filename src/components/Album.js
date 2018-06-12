@@ -3,6 +3,7 @@ import albumData from './../data/albums';
 
 class Album extends Component {
     constructor(props) {
+        
         super(props);
         
         const album = albumData.find( album => {
@@ -12,7 +13,7 @@ class Album extends Component {
         this.state = {
             album: album,
             currentSong: album.songs[0],
-            isPlaying: false
+            isPlaying: false,
         };
         
         this.audioElement = document.createElement('audio');
@@ -35,6 +36,7 @@ class Album extends Component {
     }
     
     handleSongClick(song) {
+        
         const isSameSong = this.state.currentSong === song;
         if (this.state.isPlaying && isSameSong) {
             this.pause();
@@ -42,6 +44,22 @@ class Album extends Component {
             if(!isSameSong) { this.setSong(song); }
             this.play();
         }
+    }
+    
+    mouseEnter() {
+        const icon = this.state.album.indexOf(currentSong);
+       
+       if (this.state.isPlaying) {
+           display: <span className="ion-pause"></span>
+       } else {
+           
+       }
+           
+           console.log("mouse has entered display play or pause") 
+    }
+    
+    mouseLeave() {
+        console.log("mouse has left")
     }
     
     render() {
@@ -65,7 +83,7 @@ class Album extends Component {
                     {
                         this.state.album.songs.map( (song, index) =>
                             <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-                                <td className="song-number">{song.number}</td>       
+                                <td className="song-number" onMouseEnter={() => this.mouseEnter()} onMouseLeave={() => this.mouseLeave()} >{index + 1}</td>       
                                 <td className="song-title">{song.title}</td>
                                 <td className="song-duration">{song.duration}</td>
                             </tr>
