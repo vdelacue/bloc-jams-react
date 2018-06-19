@@ -1,5 +1,5 @@
 .playClass .ion-play{
-    
+    display: contents;
 }
 
 .playClass .ion-pause {
@@ -15,7 +15,7 @@
 }
 
 .pauseClass .ion-pause {
-    
+    display: contents;
 }
 
 .pauseClass .number-icon {
@@ -31,5 +31,5 @@
 }
 
 .numberOfSongClass .number-icon {
-    
+    display: contents;
 }
