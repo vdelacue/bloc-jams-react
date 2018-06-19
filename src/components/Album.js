@@ -49,9 +49,10 @@ class Album extends Component {
     }
     
     songRowClass(song) {
-        if (this.state.isPlaying) {
+        const isSameSong = (this.state.currentSong === song) ;
+        if (this.state.isPlaying && isSameSong) {
             return "playClass";
-        } else if (this.state.isPaused) {
+        } else if (this.state.isPaused && isSameSong) {
             return "pauseClass";
         } else {
             return "numberOfSongClass";
