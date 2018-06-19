@@ -12,7 +12,8 @@ class Album extends Component {
         this.state = {
             album: album,
             currentSong: album.songs[0],
-            isPlaying: false
+            isPlaying: false,
+            isPaused: false,
         };
         
         this.audioElement = document.createElement('audio');
@@ -22,11 +23,13 @@ class Album extends Component {
     play() {
         this.audioElement.play();
         this.setState({ isPlaying: true });
+        this.setState({ isPaused: false });
     }
         
     pause() {
         this.audioElement.pause();
         this.setState({ isPlaying: false });
+        this.setState({ isPaused: true });
     }
     
     setSong(song) {
@@ -44,39 +47,16 @@ class Album extends Component {
         }
     }
     
-    onMouseEnter = () => {
-        console.log("mouse entered");
-        this.setState({ isMouseInside: true });
-            if (this.state.isPlaying && isMouseInside) {
-                this.index = <span className="ion-pause"></span>;
-            } else {
-                if(!isMouseInside)
-                this.index = index;   
+    songRowClass(song) {
+        if (this.state.isPlaying) {
+            "playClass";
+        } else if (this.state.isPaused) {
+            "pauseClass";
+        } else {
+            "numberOfSongClass";
         }
-               
-        };
-    }
-    
-    onMouseLeave = () => {
-        console.log("mouse left");
-        console.log(props);
-        
-        this.setState({ isMouseInside: false });
-            if (this.state.isPlaying && isMouseInside) {
-                this.index = <span className="ion-pause"></span>;
-            } else {
-                if(!isMouseInside)
-                this.index = index;   
-        }
-               
-        };
-    
-     {/*//     onMouseLeave() {
-//        console.log("mouse left");
-//        this.setState({
-//            this.state.isPlaying ? <span className="ion-pause"></span> : <span className="ion-play"></span> 
-//        });
-//    */}
+            
+    };
    
     
     render() {
@@ -99,10 +79,13 @@ class Album extends Component {
                 <tbody className="song-list">
                     {
                         this.state.album.songs.map( (song, index) =>
-                            <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-                                <span className="ion-play"></span>
-                                <span className="ion-pause"></span> 
-                                <td className="song-number" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>{index + 1}</td>    
+                            <tr className={this.songRowClass(song)} key={index} onClick={() => this.handleSongClick(song)} >
+                                
+                                <td className="song-number" >
+                                    <span className="ion-play"></span>
+                                    <span className="ion-pause"></span> 
+                                    <span className="number-icon">{index + 1}</span>
+                                </td>    
                                 <td className="song-title">{song.title}</td>
                                 <td className="song-duration">{song.duration}</td>
                             </tr>

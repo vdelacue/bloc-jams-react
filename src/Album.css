@@ -1,0 +1,35 @@
+.playClass .ion-play{
+    
+}
+
+.playClass .ion-pause {
+    display: none;
+}
+
+.playClass .number-icon {
+    display: none;
+}
+
+.pauseClass .ion-play{
+    display: none;
+}
+
+.pauseClass .ion-pause {
+    
+}
+
+.pauseClass .number-icon {
+    display: none;
+}
+
+.numberOfSongClass .ion-play{
+    display: none;
+}
+
+.numberOfSongClass .ion-pause {
+    display: none;
+}
+
+.numberOfSongClass .number-icon {
+    
+}
