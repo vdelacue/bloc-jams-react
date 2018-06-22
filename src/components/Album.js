@@ -15,6 +15,7 @@ class Album extends Component {
             album: album,
             currentSong: album.songs[0],
             currentTime: 0,
+            currentVolume: 80,
             duration: album.songs[0].duration,
             isPlaying: false,
             isPaused: false,
@@ -31,16 +32,21 @@ class Album extends Component {
             },
             durtionchange: (e) => {
                 this.setState({ duration: this.audioElement.duration});
-            }
+            },
+            volumeupdate: (v) => {
+                this.setState({ currentVolume: this.state.currentVolume});
+            },
         };
         this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
         this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
+        this.audioElement.addEventListener('volumeupdate', this.eventListeners.volumeupdate);
     }
 
     componentWillUnmount() {
         this.audioElement.src = null;
         this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
         this.audioElement.removeEventListener('durationchange', this.eventListeners.durationchange);
+        this.audioElement.removeEventListener('volumeupdate', this.eventListeners.volumeupdate);
     }
     
     play() {
@@ -76,6 +82,11 @@ class Album extends Component {
         this.setState({ currentTime: newTime });
     }
     
+    handleVolumeChange(v) {
+        const newVolume = v.target.value;
+        this.setState({ currentVolume: newVolume });
+    }
+    
     songRowClass(song) {
         const isSameSong = (this.state.currentSong === song) ;
         if (this.state.isPlaying && isSameSong) {
@@ -96,13 +107,30 @@ class Album extends Component {
         this.play();
     }
     
-    handleNextClick(){
+    handleNextClick() {
         const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);        
         const newIndex = Math.min(this.state.album.songs.length - 1, currentIndex + 1);
         console.log(newIndex);
         const newSong = this.state.album.songs[newIndex];
         this.setSong(newSong);
         this.play();
+    }
+    
+    formatTime(timeInSeconds) {
+        if (isNaN(timeInSeconds)) {
+            return "-:--";
+        } else {
+            var wholeSecs = parseFloat(timeInSeconds);
+            var wholeMins = parseFloat(wholeSecs / 60);
+            wholeMins = Math.floor(wholeMins);
+            var remainderSecs = (wholeSecs % 60);
+            remainderSecs = Math.floor(remainderSecs);
+                if(remainderSecs < 10) {
+                remainderSecs = "0" + remainderSecs
+                };
+            var returnTime = wholeMins + ':' + remainderSecs;
+            return returnTime;
+        }
     }
    
     
@@ -134,7 +162,7 @@ class Album extends Component {
                                     <span className="number-icon">{index + 1}</span>
                                 </td>    
                                 <td className="song-title">{song.title}</td>
-                                <td className="song-duration">{song.duration}</td>
+                                <td className="song-duration">{this.formatTime(song.duration)}</td>
                             </tr>
                         )
                     }
@@ -145,10 +173,13 @@ class Album extends Component {
                     currentSong={this.state.currentSong}
                     currentTime={this.audioElement.currentTime}
                     duration={this.audioElement.duration}
+                    currentVolume={this.state.currentVolume}
                     handleSongClick={() => this.handleSongClick(this.state.currentSong)}
                     handlePrevClick={() => this.handlePrevClick()}
                     handleNextClick={() => this.handleNextClick()}
                     handleTimeChange={(e) => this.handleTimeChange(e)}
+                    handleVolumeChange={(v) => this.handleVolumeChange(v)}
+                    formatTime={(timeInSeconds) => this.formatTime(timeInSeconds)}
                 />
             </section>
         );
