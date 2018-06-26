@@ -10,12 +10,31 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <nav>
-                <Link to='/'>Landing</Link>
-                <Link to='/Library'>Library</Link>
-            </nav>
-            <h1 className="clearfix float-left bg-danger">Bloc Jams</h1>
+        <header className="header">
+            <div className="jumbotron-fluid clearfix">
+                <nav>
+                    <ul className="nav nav-pills nav-fill">
+                        <li className="nav-item">
+                            <a className="nav-link active" href="#">
+                                <Link to='/' className="navLanding ">Landing</Link>
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">
+                                <Link to='/Library' className="navLibrary">Library</Link>
+                            </a>
+                        </li>
+                    </ul>
+        
+        
+        
+        
+        
+        
+                    
+                </nav>
+                <h1 className="clearfix float-left bg-danger">Bloc Jams</h1>
+            </div>
         </header>
         <main>
             <Route exact path="/" component={Landing} />
