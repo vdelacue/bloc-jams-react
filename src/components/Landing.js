@@ -2,7 +2,7 @@ import React from 'react';
 
 const Landing = () => (
     <section className="landing">
-        
+        <img className="background-image" src="/assets/images/redsmoke.jpg"
         <h1 className="hero-title">Turn the music up!</h1>
         <section className="selling-points">
             <div className="point">
