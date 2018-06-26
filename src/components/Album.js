@@ -23,6 +23,7 @@ class Album extends Component {
         
         this.audioElement = document.createElement('audio');
         this.audioElement.src = album.songs[0].audioSrc;
+        this.audioElement.volume = .2;
     }
     
     componentDidMount() {
@@ -83,7 +84,7 @@ class Album extends Component {
     }
     
     handleVolumeChange(v) {
-        const newVolume = v.target.value;
+        const newVolume = parseInt(v.target.value);
         this.setState({ currentVolume: newVolume });
     }
     
