@@ -15,25 +15,20 @@ class App extends Component {
                 <nav>
                     <ul className="nav nav-pills nav-fill">
                         <li className="nav-item">
-                            <a className="nav-link active" href="#">
-                                <Link to='/' className="navLanding ">Landing</Link>
+                            <a className="nav-link" href="#">
+                                <Link to='/' className="navLanding btn btn-outline-dark">Landing</Link>
                             </a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">
-                                <Link to='/Library' className="navLibrary">Library</Link>
+                                <Link to='/Library' className="navLibrary btn btn-outline-dark">Library</Link>
                             </a>
                         </li>
-                    </ul>
-        
-        
-        
-        
-        
-        
-                    
+                    </ul> 
                 </nav>
-                <h1 className="clearfix float-left bg-danger">Bloc Jams</h1>
+            </div>
+            <div className="clearfix">
+                <h1 id="blocJams" className="clearfix">Bloc Jams</h1>
             </div>
         </header>
         <main>
