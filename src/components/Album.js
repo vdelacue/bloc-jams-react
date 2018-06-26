@@ -85,6 +85,7 @@ class Album extends Component {
     
     handleVolumeChange(v) {
         const newVolume = parseInt(v.target.value);
+        this.audioElement.volume = newVolume / 100;
         this.setState({ currentVolume: newVolume });
     }
     

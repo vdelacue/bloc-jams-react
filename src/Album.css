@@ -1,9 +1,9 @@
 .playClass .ion-play{
-    display: contents;
+    display: none;
 }
 
 .playClass .ion-pause {
-    display: none;
+    display: contents;
 }
 
 .playClass .number-icon {
@@ -11,11 +11,11 @@
 }
 
 .pauseClass .ion-play{
-    display: none;
+    display: contents;
 }
 
 .pauseClass .ion-pause {
-    display: contents;
+    display: none;
 }
 
 .pauseClass .number-icon {
