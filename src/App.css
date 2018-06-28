@@ -30,9 +30,25 @@
 h1 {
     font-size: 75px;
     font-family: Impact;
+    padding: 20px;
 }
 
 h1.hero-title {
     font-family: fantasy;
     font-size: 50px;
+    padding: 40px;
+    border-bottom: 10px;
+}
+
+h2.point-title {
+    font-family: impact;
+}
+
+p.point-description {
+    font-family: fantasy;
+}
+
+a {
+    font-family: fantasy;
+    font-style: oblique;
 }

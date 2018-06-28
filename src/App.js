@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="header">
+        <header className="container-fluid">
             <div className="jumbotron-fluid clearfix">
                 <nav>
                     <ul className="nav nav-pills nav-fill">
@@ -31,7 +31,7 @@ class App extends Component {
                 <h1 id="blocJams" className="clearfix">Bloc Jams</h1>
             </div>
         </header>
-        <main>
+        <main className="container-fluid">
             <Route exact path="/" component={Landing} />
             <Route path="/library" component={Library} />
             <Route path="/album/:slug" component={Album} />
