@@ -33,3 +33,7 @@
 .numberOfSongClass .number-icon {
     display: contents;
 }
+
+section .albumData {
+    padding: 30px;
+}

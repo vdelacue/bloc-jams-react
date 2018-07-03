@@ -140,14 +140,14 @@ class Album extends Component {
         return (
             <section className="album">
                 <section id="album-info">
-                    <img id="album-cover-art" src ={this.state.album.albumCover} alt="album-cover-art" />
+                    <img className="img-fluid rounded mx-auto d-block" id="album-cover-art" src ={this.state.album.albumCover} alt="album-cover-art" />
                     <div className="album-details">
                         <h1 id="album-title">{this.state.album.title}</h1>
                         <h2 className="artist">{this.state.album.artist}</h2>
                         <div id="release-info">{this.state.album.releaseinfo}</div>
                     </div>
                 </section>
-                <table id="song-list">
+                <table id="song-list" className="table table-striped table-dark">
                     <colgroup>
                         <col id="song-number-columnn" />
                         <col id="song-title-column" />
