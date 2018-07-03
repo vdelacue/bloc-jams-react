@@ -1,4 +1,4 @@
-.playClass .ion-play{
+.playClass .ion-play {
     display: none;
 }
 
@@ -10,7 +10,7 @@
     display: none;
 }
 
-.pauseClass .ion-play{
+.pauseClass .ion-play {
     display: contents;
 }
 
@@ -22,7 +22,7 @@
     display: none;
 }
 
-.numberOfSongClass .ion-play{
+.numberOfSongClass .ion-play {
     display: none;
 }
 
