@@ -16,7 +16,7 @@ class App extends Component {
                     <ul className="nav nav-pills nav-fill">
                         <li className="nav-item">
                             <a className="nav-link" href="#">
-                                <Link to='/' className="navLanding btn btn-outline-dark">Landing</Link>
+                                <Link to='/' className="navLanding btn btn-outline-dark">Home</Link>
                             </a>
                         </li>
                         <li className="nav-item">

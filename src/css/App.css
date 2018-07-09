@@ -53,14 +53,66 @@ h1.hero-title {
 }
 
 h2.point-title {
-    font-family: impact;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    text-shadow: 2px 2px 7px #000000;
+    color: #F5A8BC;
+}
+
+h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    text-shadow: 2px 2px 7px #000000;
+    color: #F5A8BC;
 }
 
 p.point-description {
-    font-family: fantasy;
+    font-family: 'Raleway', sans-serif;
 }
 
 a {
-    font-family: fantasy;
+    font-family: 'Raleway', sans-serif;
     font-style: oblique;
+    
+}
+
+.img-thumbnail {
+    background-color:  #F5A8BC;
+    border: solid;
+    border-color: black;
+}
+
+.column {
+    background-color: #E9DAD8;
+    padding: 15px;
+    margin: 35px;
+    border: solid;
+    border-color: black;
+}
+
+img {
+    background-color:  #F5A8BC;
+    border: solid;
+    border-color: black;
+    padding-bottom: 35px;
+    padding-top: 35px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+ul {
+    background-color:  #F5A8BC;
+    border: solid;
+    border-color: black;
+    padding: 5px;
+    margin: 35px;
+    margin-bottom: 35px;
+    
+}
+
+li {
+    font-family: 'Monoton', cursive;
+    font-size: 20px;
+    color: #F5A8BC;
+    
 }
