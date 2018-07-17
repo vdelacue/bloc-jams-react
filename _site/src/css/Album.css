@@ -1,0 +1,39 @@
+.playClass .ion-play {
+    display: none;
+}
+
+.playClass .ion-pause {
+    display: contents;
+}
+
+.playClass .number-icon {
+    display: none;
+}
+
+.pauseClass .ion-play {
+    display: contents;
+}
+
+.pauseClass .ion-pause {
+    display: none;
+}
+
+.pauseClass .number-icon {
+    display: none;
+}
+
+.numberOfSongClass .ion-play {
+    display: none;
+}
+
+.numberOfSongClass .ion-pause {
+    display: none;
+}
+
+.numberOfSongClass .number-icon {
+    display: contents;
+}
+
+section .albumData {
+    padding: 30px;
+}
